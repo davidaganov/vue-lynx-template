@@ -1,4 +1,4 @@
-import { ref, computed, onMounted, onUnmounted, readonly } from "vue"
+import { ref, computed, onMounted, onUnmounted, readonly } from "vue-lynx"
 
 /**
  * Local interface for Lynx runtime methods that might be missing from
@@ -69,6 +69,7 @@ export const useLynxScreen = () => {
       const ratio = SystemInfo.pixelRatio || 1
       width.value = SystemInfo.pixelWidth / ratio
       height.value = SystemInfo.pixelHeight / ratio
+      console.error("Failed to get system info:", e)
     }
   }
 

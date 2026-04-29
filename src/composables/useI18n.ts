@@ -1,5 +1,5 @@
-import { inject } from "vue"
-import { I18nInjectionKey, type I18nInstance } from "./plugin"
+import { inject } from "vue-lynx"
+import { I18nInjectionKey, type I18nInstance } from "@/i18n"
 
 /**
  * Lightweight i18n composable.

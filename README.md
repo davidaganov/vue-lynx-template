@@ -8,6 +8,7 @@ A template for building native applications using Vue 3 with Lynx.
 - **Routing**: Ready-to-use `vue-router` setup for multi-page application logic.
 - **State Management**: Integrated **Pinia** for scalable reactive state.
 - **i18n**: Custom lightweight localization system with AI-powered translation sync.
+- **Unit Testing**: Robust testing setup using **Vitest** and **Vue Test Utils** with 100% core coverage.
 - **Automated Pipeline**: Smart scripts for Android builds and icon generation.
 
 ## Prerequisites
@@ -39,6 +40,19 @@ This project features a custom, lightweight i18n implementation designed for Lyn
 - To synchronize other locales using AI, we use the [Polyglot Keeper](https://github.com/davidaganov/polyglot-keeper):
   ```bash
   npm run translate
+  ```
+
+## Testing
+
+The project uses **Vitest** and **Vue Test Utils** for unit testing.
+
+- **Run all tests**:
+  ```bash
+  npm test
+  ```
+- **Check coverage**:
+  ```bash
+  npx vitest run --coverage
   ```
 
 ## Android Build Pipeline

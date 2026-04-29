@@ -1,7 +1,33 @@
 {
   "name": "lynx-starter",
-  "version": "0.0.0",
+  "version": "1.0.1",
+  "description": "A simple template for quickly building mobile applications with Vue Lynx.",
   "type": "module",
+  "keywords": [
+    "vue-lynx",
+    "template",
+    "mobile",
+    "android",
+    "web",
+    "cross-platform",
+    "vue"
+  ],
+  "homepage": "https://github.com/davidaganov/lynx-starter",
+  "bugs": {
+    "url": "https://github.com/davidaganov/lynx-starter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidaganov/lynx-starter"
+  },
+  "author": {
+    "name": "David Aganov",
+    "url": "https://github.com/davidaganov"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "sync": "npx lynx-native-cli sync",
     "android": "npx lynx-native-cli build android",
@@ -15,7 +41,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test": "vitest run"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -29,14 +56,19 @@
     "@lynx-js/qrcode-rsbuild-plugin": "^0.4.6",
     "@lynx-js/rspeedy": "^0.13.5",
     "@lynx-js/tailwind-preset": "^0.4.0",
+    "@lynx-js/template-webpack-plugin": "^0.11.0",
     "@lynx-js/types": "^3.7.0",
     "@rsbuild/plugin-vue": "^1.2.6",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
+    "@vitejs/plugin-vue": "^6.0.6",
+    "@vitest/coverage-v8": "^4.1.5",
+    "@vue/test-utils": "^2.4.9",
     "eslint": "^10.2.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-vue": "^10.9.0",
     "globals": "^17.5.0",
+    "jsdom": "^29.1.0",
     "polyglot-keeper": "^1.3.1",
     "prettier": "^3.8.3",
     "rsbuild-plugin-tailwindcss": "^0.2.4",
@@ -44,10 +76,8 @@
     "tailwindcss": "^3.4.19",
     "typescript": "^5.0.0",
     "typescript-eslint": "^8.59.0",
+    "vitest": "^4.1.5",
     "vue-eslint-parser": "^10.4.0",
     "vue-tsc": "^3.2.7"
-  },
-  "engines": {
-    "node": ">=18"
   }
 }

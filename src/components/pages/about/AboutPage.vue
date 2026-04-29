@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AboutInfo from "@/components/pages/about/AboutInfo.vue"
 import UiButton from "@/components/ui/UiButton.vue"
 </script>
 
@@ -22,34 +23,7 @@ import UiButton from "@/components/ui/UiButton.vue"
       {{ $t("about.description") }}
     </text>
 
-    <!-- Quick Info -->
-    <view class="w-full max-w-[320px] flex flex-col gap-3">
-      <view
-        class="rounded-xl border border-white/5 bg-white/[0.03] p-4 flex flex-row items-center gap-3"
-      >
-        <text class="text-xl">🌐</text>
-        <text
-          class="text-sm text-gray-300 font-medium"
-          text-selection="true"
-          :flatten="false"
-        >
-          {{ $t("about.features.i18n") }}
-        </text>
-      </view>
-
-      <view
-        class="rounded-xl border border-white/5 bg-white/[0.03] p-4 flex flex-row items-center gap-3"
-      >
-        <text class="text-xl">🎨</text>
-        <text
-          class="text-sm text-gray-300 font-medium"
-          text-selection="true"
-          :flatten="false"
-        >
-          {{ $t("about.features.tailwindUtilityFirst") }}
-        </text>
-      </view>
-    </view>
+    <AboutInfo />
 
     <UiButton
       type="outline"

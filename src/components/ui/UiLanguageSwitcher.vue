@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { computed } from "vue"
+import { computed } from "vue-lynx"
 import { clsx } from "clsx"
-import { useI18n, locales, type Locale } from "@/i18n"
+import { useI18n, LOCALES } from "@/i18n"
 
 const { locale, setLocale } = useI18n()
 
-const availableLocales = computed(() => Object.keys(locales))
+const availableLocales = computed(() => Object.values(LOCALES))
 
-const switchLocale = (newLocale: Locale) => {
+const switchLocale = (newLocale: LOCALES) => {
   setLocale(newLocale)
 }
 </script>

@@ -2,11 +2,10 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "composite": true,
-
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "types": ["vue-lynx/types"],
-
+    "resolveJsonModule": true,
     "noEmit": true
   },
   "vueCompilerOptions": {

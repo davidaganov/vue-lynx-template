@@ -1,24 +1,22 @@
-import en from "@/i18n/locales/en.json"
-import ru from "@/i18n/locales/ru.json"
+import enMessages from "@/i18n/locales/en.json"
+import ruMessages from "@/i18n/locales/ru.json"
 
-/**
- * Locale registry.
- * To add a new language, just add an import and an entry here.
- * All types (Locale, Messages) are derived automatically.
- */
-export const locales = { en, ru } as const
+export const messagesMap = {
+  en: enMessages,
+  ru: ruMessages
+}
 
 /**
  * Composables for i18n
  */
-export { useI18n } from "./useI18n"
+export { useI18n } from "@/composables/useI18n"
 
 /**
  * Plugin for i18n
  */
-export { createI18n, type I18nInstance } from "./plugin"
+export { I18nInjectionKey, createI18n } from "@/plugins/i18n"
 
 /**
  * Type aliases for i18n
  */
-export type { TranslationKey, Locale, Messages } from "./types"
+export { type TranslationKey, type I18nInstance, LOCALES } from "@/types"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue"
+import { computed } from "vue-lynx"
 import type { RouteLocationRaw } from "vue-router"
 import { clsx } from "clsx"
 import UiLink from "@/components/ui/UiLink.vue"
@@ -48,9 +48,9 @@ const handleClick = (e: any, navigate?: () => void) => {
 
 <template>
   <component
+    :is="props.to ? UiLink : 'view'"
     v-slot="slotProps"
     class="flex"
-    :is="props.to ? UiLink : 'view'"
     :to="props.to"
   >
     <view

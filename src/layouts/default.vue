@@ -12,16 +12,16 @@ import UiLanguageSwitcher from "@/components/ui/UiLanguageSwitcher.vue"
       <UiLanguageSwitcher />
     </view>
 
-    <view class="flex-1 flex justify-center min-h-screen flex-col h-full p-5">
+    <view class="flex-1 z-20 flex justify-center min-h-screen flex-col h-full p-5">
       <RouterView />
     </view>
 
     <!-- Background Glow -->
     <view
-      class="absolute -z-10 pointer-events-none bottom-10 -left-20 w-64 h-64 bg-violet-600/10 rounded-full blur-[100px]"
+      class="absolute z-10 pointer-events-none bottom-10 -left-20 w-64 h-64 bg-violet-600/10 rounded-full blur-[100px]"
     />
     <view
-      class="absolute -z-10 pointer-events-none bottom-20 -right-20 w-80 h-80 bg-violet-600/10 rounded-full blur-[80px]"
+      class="absolute z-10 pointer-events-none bottom-20 -right-20 w-80 h-80 bg-violet-600/10 rounded-full blur-[80px]"
     />
   </scroll-view>
 </template>

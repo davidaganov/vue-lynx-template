@@ -2,12 +2,13 @@ import { createApp } from "vue-lynx"
 import { createPinia } from "pinia"
 import router from "@/router"
 import { createI18n } from "@/i18n"
+import { LOCALES } from "@/types"
 import App from "@/App.vue"
 import "@/assets/styles/main.css"
 
 const app = createApp(App)
 const pinia = createPinia()
-const i18n = createI18n({ defaultLocale: "en" })
+const i18n = createI18n({ defaultLocale: LOCALES.EN })
 
 app.use(pinia)
 app.use(router)

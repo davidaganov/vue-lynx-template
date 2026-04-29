@@ -1,15 +1,9 @@
-import { ref, computed, type Plugin, type App, type Ref, type ComputedRef } from "vue"
-import { locales } from "./index"
-import type { Locale, Messages, TranslationKey } from "./types"
+import type { Plugin, App } from "vue"
+import { ref, computed } from "vue-lynx"
+import { messagesMap } from "@/i18n"
+import { LOCALES, type TranslationKey, type I18nInstance } from "@/types"
 
 export const I18nInjectionKey = Symbol("i18n")
-
-export interface I18nInstance {
-  locale: Ref<Locale>
-  messages: ComputedRef<Messages>
-  setLocale: (value: Locale) => void
-  t: (key: TranslationKey, params?: Record<string, string | number>) => string
-}
 
 /**
  * Resolves a dot-separated key path in the messages object.
@@ -39,18 +33,18 @@ const interpolate = (template: string, params?: Record<string, string | number>)
   })
 }
 
-export const createI18n = (options: { defaultLocale: Locale }): Plugin => {
+export const createI18n = (options: { defaultLocale: LOCALES }): Plugin => {
   return {
     install(app: App) {
-      const locale = ref<Locale>(options.defaultLocale)
-      const messages = computed<Messages>(() => locales[locale.value])
+      const locale = ref<LOCALES>(options.defaultLocale)
+      const messages = computed(() => messagesMap[locale.value])
 
-      const setLocale = (value: Locale) => {
+      const setLocale = (value: LOCALES) => {
         locale.value = value
       }
 
       const t = (key: TranslationKey, params?: Record<string, string | number>): string => {
-        const raw = resolvePath(messages.value as unknown as Record<string, unknown>, key)
+        const raw = resolvePath(messages.value as Record<string, unknown>, key)
         return interpolate(raw, params)
       }
 
@@ -68,5 +62,12 @@ export const createI18n = (options: { defaultLocale: Locale }): Plugin => {
       app.config.globalProperties.$t = t
       app.config.globalProperties.$i18n = i18n
     }
+  }
+}
+
+declare module "@vue/runtime-core" {
+  export interface ComponentCustomProperties {
+    $t: (key: TranslationKey, params?: Record<string, string | number>) => string
+    $i18n: I18nInstance
   }
 }

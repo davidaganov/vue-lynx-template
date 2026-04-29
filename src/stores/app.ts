@@ -1,4 +1,4 @@
-import { ref } from "vue"
+import { ref } from "vue-lynx"
 import { defineStore } from "pinia"
 
 export const useAppStore = defineStore("app", () => {

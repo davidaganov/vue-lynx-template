@@ -32,3 +32,6 @@ android/.idea
 web/dist
 web/node_modules
 web/.nx
+
+# Tests
+coverage

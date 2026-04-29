@@ -16,7 +16,8 @@
     "description": "This template is a starting point for your Vue Lynx project.",
     "features": {
       "i18n": "i18n Support",
-      "tailwindUtilityFirst": "Tailwind Support"
+      "tailwindUtilityFirst": "Tailwind Support",
+      "tests": "Unit Tests (Vitest)"
     },
     "returnButton": "← Return"
   }
