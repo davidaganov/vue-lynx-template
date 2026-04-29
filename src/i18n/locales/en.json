@@ -1,0 +1,23 @@
+{
+  "home": {
+    "badge": "Template v{version}",
+    "hero": {
+      "title": "Vue Lynx",
+      "subtitle": "Starter Template",
+      "description": "A simple template for quickly building mobile applications with Vue Lynx."
+    },
+    "actions": {
+      "getStarted": "Get Started",
+      "readMore": "Read More"
+    }
+  },
+  "about": {
+    "title": "About",
+    "description": "This template is a starting point for your Vue Lynx project.",
+    "features": {
+      "i18n": "i18n Support",
+      "tailwindUtilityFirst": "Tailwind Support"
+    },
+    "returnButton": "← Return"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "home": {
+    "badge": "Шаблон v{version}",
+    "hero": {
+      "title": "Vue Lynx",
+      "subtitle": "Стартовый шаблон",
+      "description": "Простой шаблон для быстрой разработки мобильных приложений с использованием Vue Lynx."
+    },
+    "actions": {
+      "getStarted": "Начать",
+      "readMore": "Подробнее"
+    }
+  },
+  "about": {
+    "title": "О проекте",
+    "description": "Этот шаблон является отправной точкой для вашего проекта на Vue Lynx.",
+    "features": {
+      "i18n": "Поддержка i18n",
+      "tailwindUtilityFirst": "Поддержка Tailwind"
+    },
+    "returnButton": "← Назад"
+  }
+}

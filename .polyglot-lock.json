@@ -1,0 +1,18 @@
+{
+  "json": {
+    "__frozen": [],
+    "values": {
+      "home.badge": "Template v{version}",
+      "home.hero.title": "Vue Lynx",
+      "home.hero.subtitle": "Starter Template",
+      "home.hero.description": "A simple template for quickly building mobile applications with Vue Lynx.",
+      "home.actions.getStarted": "Get Started",
+      "home.actions.readMore": "Read More",
+      "about.title": "About",
+      "about.description": "This template is a starting point for your Vue Lynx project.",
+      "about.features.i18n": "i18n Support",
+      "about.features.tailwindUtilityFirst": "Tailwind Support",
+      "about.returnButton": "← Return"
+    }
+  }
+}
