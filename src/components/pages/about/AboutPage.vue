@@ -27,7 +27,7 @@ import UiButton from "@/components/ui/UiButton.vue"
 
     <UiButton
       type="outline"
-      class="h-12 mt-12 w-full max-w-[200px] rounded-full border-white/10 hover:border-primary/50"
+      class="mt-12 w-full max-w-[320px]"
       :to="{ name: 'home' }"
     >
       {{ $t("about.returnButton") }}

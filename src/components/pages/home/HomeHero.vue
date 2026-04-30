@@ -11,7 +11,7 @@ const { md } = useLynxScreen()
   <view>
     <view class="mb-6 rounded-full mx-auto bg-primary/10 px-4 py-1 border border-primary/20">
       <text
-        class="text-xs font-semibold text-primary uppercase tracking-widest"
+        class="text-xs font-semibold text-primary tracking-widest"
         text-selection="true"
         :flatten="false"
       >

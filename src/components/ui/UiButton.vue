@@ -48,9 +48,9 @@ const handleClick = (e: any, navigate?: () => void) => {
 
 <template>
   <component
-    :is="props.to ? UiLink : 'view'"
     v-slot="slotProps"
     class="flex"
+    :is="props.to ? UiLink : 'view'"
     :to="props.to"
   >
     <view

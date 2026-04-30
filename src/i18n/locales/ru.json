@@ -16,8 +16,9 @@
     "description": "Этот шаблон является отправной точкой для вашего проекта на Vue Lynx.",
     "features": {
       "i18n": "Поддержка i18n",
-      "tailwindUtilityFirst": "Поддержка Tailwind",
-      "tests": "Unit-тесты (Vitest)"
+      "tailwind": "Поддержка Tailwind",
+      "tests": "Unit-тесты (Vitest)",
+      "pinia": "Поддержка Pinia"
     },
     "returnButton": "← Назад"
   }

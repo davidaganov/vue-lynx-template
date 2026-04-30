@@ -19,17 +19,17 @@ const switchLocale = (newLocale: LOCALES) => {
     <view
       v-for="l in availableLocales"
       class="px-3 py-1 rounded-full transition-all duration-300 cursor-pointer"
+      :key="l"
       :class="
         clsx({
           'bg-transparent border border-transparent opacity-60 hover:opacity-100': locale !== l,
           'bg-primary/20 border border-primary/30': locale === l
         })
       "
-      :key="l"
       @tap="switchLocale(l)"
     >
       <text
-        class="text-xs font-semibold uppercase tracking-wider"
+        class="text-xs font-semibold tracking-wider"
         :class="locale === l ? 'text-primary' : 'text-gray-400'"
       >
         {{ l }}

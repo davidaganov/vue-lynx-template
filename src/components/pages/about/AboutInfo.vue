@@ -5,7 +5,8 @@ const { t } = useI18n()
 
 const features = [
   { icon: "🌐", text: t("about.features.i18n") },
-  { icon: "🎨", text: t("about.features.tailwindUtilityFirst") },
+  { icon: "📦", text: t("about.features.pinia") },
+  { icon: "🎨", text: t("about.features.tailwind") },
   { icon: "🧪", text: t("about.features.tests") }
 ]
 </script>
