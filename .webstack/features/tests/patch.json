@@ -1,0 +1,20 @@
+{
+  "name": "tests",
+  "requires": [],
+  "copy": [
+    "src/__tests__",
+    "vitest.config.ts"
+  ],
+  "patches": [],
+  "packageJson": {
+    "scripts": {
+      "test": "vitest run"
+    },
+    "devDependencies": [
+      "@vitest/coverage-v8",
+      "@vue/test-utils",
+      "jsdom",
+      "vitest"
+    ]
+  }
+}

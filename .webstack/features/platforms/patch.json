@@ -1,0 +1,4 @@
+{
+  "name": "platforms",
+  "copy": ["android", "web"]
+}

@@ -1,0 +1,14 @@
+@import "./fonts.css";
+@import "./lib/tailwind.css";
+
+* {
+  box-sizing: border-box;
+}
+
+text {
+  font-family: 'Inter', sans-serif;
+}
+
+[bindtap], [onclick], .cursor-pointer {
+  cursor: pointer;
+}

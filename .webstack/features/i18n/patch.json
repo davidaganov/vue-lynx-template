@@ -1,0 +1,135 @@
+{
+  "name": "i18n",
+  "requires": ["tests"],
+  "copy": [
+    "src/i18n",
+    "src/components/ui/UiLanguageSwitcher.vue",
+    "src/__tests__/plugins/i18n.test.ts",
+    "src/__tests__/plugins/plugin.test.ts",
+    "src/__tests__/components/ui/UiLanguageSwitcher.test.ts",
+    "src/__tests__/composables/useI18n.test.ts"
+  ],
+  "patches": [
+    {
+      "file": "src/index.ts",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:import",
+      "lines": [
+        "import { createI18n } from \"@/i18n\"",
+        "import { LOCALES } from \"@/types\""
+      ]
+    },
+    {
+      "file": "src/index.ts",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:use",
+      "lines": [
+        "const i18n = createI18n({ defaultLocale: LOCALES.EN })",
+        "app.use(i18n)"
+      ]
+    },
+    {
+      "file": "src/layouts/default.vue",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:layout-imports",
+      "lines": ["import UiLanguageSwitcher from \"@/components/ui/UiLanguageSwitcher.vue\""]
+    },
+    {
+      "file": "src/layouts/default.vue",
+      "action": "insert-before-marker",
+      "marker": "<!-- @webstack:layout-top-bar -->",
+      "lines": ["<UiLanguageSwitcher />"]
+    },
+    {
+      "file": "src/components/pages/about/AboutPage.vue",
+      "action": "replace-marker",
+      "marker": "<!-- @webstack:about-title -->\n        About",
+      "lines": ["{{ $t(\"about.title\") }}"]
+    },
+    {
+      "file": "src/components/pages/about/AboutPage.vue",
+      "action": "replace-marker",
+      "marker": "<!-- @webstack:about-description -->\n      A starter kit for building highly performant mobile applications.",
+      "lines": ["{{ $t(\"about.description\") }}"]
+    },
+    {
+      "file": "src/components/pages/about/AboutPage.vue",
+      "action": "replace-marker",
+      "marker": "<!-- @webstack:about-return-button -->\n      Back to Home",
+      "lines": ["{{ $t(\"about.returnButton\") }}"]
+    },
+    {
+      "file": "src/components/pages/about/AboutInfo.vue",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:about-info-setup",
+      "lines": ["import { useI18n } from \"@/i18n\"", "", "const { t } = useI18n()"]
+    },
+    {
+      "file": "src/components/pages/about/AboutInfo.vue",
+      "action": "replace-marker",
+      "marker": "/* @webstack:about-feat-i18n */ \"Internationalization\"",
+      "lines": ["t(\"about.features.i18n\")"]
+    },
+    {
+      "file": "src/components/pages/about/AboutInfo.vue",
+      "action": "replace-marker",
+      "marker": "/* @webstack:about-feat-pinia */ \"State Management\"",
+      "lines": ["t(\"about.features.pinia\")"]
+    },
+    {
+      "file": "src/components/pages/about/AboutInfo.vue",
+      "action": "replace-marker",
+      "marker": "/* @webstack:about-feat-tailwind */ \"Modern Styling\"",
+      "lines": ["t(\"about.features.tailwind\")"]
+    },
+    {
+      "file": "src/components/pages/about/AboutInfo.vue",
+      "action": "replace-marker",
+      "marker": "/* @webstack:about-feat-tests */ \"Testing\"",
+      "lines": ["t(\"about.features.tests\")"]
+    },
+    {
+      "file": "src/components/pages/home/HomeHero.vue",
+      "action": "replace-marker",
+      "marker": "<!-- @webstack:hero-title -->\n        Lynx",
+      "lines": ["{{ $t(\"home.hero.title\") }}"]
+    },
+    {
+      "file": "src/components/pages/home/HomeHero.vue",
+      "action": "replace-marker",
+      "marker": "<!-- @webstack:hero-subtitle -->\n        Starter",
+      "lines": ["{{ $t(\"home.hero.subtitle\") }}"]
+    },
+    {
+      "file": "src/components/pages/home/HomeHero.vue",
+      "action": "replace-marker",
+      "marker": "<!-- @webstack:hero-description -->\n      A simple template for quickly building mobile applications with Vue Lynx.",
+      "lines": ["{{ $t(\"home.hero.description\") }}"]
+    },
+    {
+      "file": "src/components/pages/home/HomeHero.vue",
+      "action": "replace-marker",
+      "marker": "{{ appStore.version }}",
+      "lines": ["{{ $t(\"home.badge\", { version: appStore.version }) }}"],
+      "allowMultiple": true
+    },
+    {
+      "file": "src/__tests__/utils.ts",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:test-utils-imports",
+      "lines": ["import { createI18n } from \"@/i18n\"", "import { LOCALES } from \"@/types\""]
+    },
+    {
+      "file": "src/__tests__/utils.ts",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:test-utils-plugins",
+      "lines": ["createI18n({ defaultLocale: LOCALES.EN }),"]
+    }
+  ],
+  "packageJson": {
+    "scripts": {
+      "translate": "polyglot-keeper sync"
+    },
+    "devDependencies": ["polyglot-keeper"]
+  }
+}
