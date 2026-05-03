@@ -1,95 +1,91 @@
 # Lynx Starter (Vue 3)
 
-A template for building native applications using Vue 3 with Lynx.
+Vue 3 starter for **Lynx** native targets: Tailwind-based UI, router, optional Pinia and i18n, Vitest, and Android build helpers.
 
-## Key Features
+**Repository:** [github.com/davidaganov/vue-lynx-template](https://github.com/davidaganov/vue-lynx-template)
 
-- **Tailwind CSS 3**: Pre-configured with `@lynx-js/tailwind-preset` for utility-first native styling.
-- **Routing**: Ready-to-use `vue-router` setup for multi-page application logic.
-- **State Management**: Integrated **Pinia** for scalable reactive state.
-- **i18n**: Custom lightweight localization system with AI-powered translation sync.
-- **Unit Testing**: Robust testing setup using **Vitest** and **Vue Test Utils** with 100% core coverage.
-- **Automated Pipeline**: Smart scripts for Android builds and icon generation.
+## Recommended setup: WebStack CLI
+
+Use **[`@davidaganov/stack`](https://www.npmjs.com/package/@davidaganov/stack)** ([CLI source](https://github.com/davidaganov/stack)):
+
+```bash
+npx @davidaganov/stack
+```
+
+Choose **Vue Lynx Template**, then:
+
+| Mode            | What you get                                                                                                                                              |
+| :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Empty**       | Core from `.webstack/template-empty` only.                                                                                                                |
+| **Recommended** | Demo pages plus **Pinia**, **i18n**, **tests**, and (when all Lynx-related modules are enabled) **platforms** integration used by the recommended preset. |
+| **Custom**      | Demo pages baseline; you independently toggle **Pinia**, **i18n** (custom Lynx i18n layer + Polyglot Keeper sync), and **Unit tests (Vitest)**.           |
+
+Router and the demo views/components slice ship with non-empty modes; they are not a separate optional toggle. Skipped modules leave static English (or neutral) strings where the wizard did not enable that layer.
+
+After generation, use `npm run dev` and scan the QR code with **Lynx Explorer** on device ([releases](https://github.com/lynx-family/lynx/releases)). Android packaging flows (`npm run build:android`) assume JDK and Android SDK as below.
+
+Maintainers: **[GUIDLINE.md](https://github.com/davidaganov/stack/blob/main/GUIDLINE.md)** in [davidaganov/stack](https://github.com/davidaganov/stack).
+
+---
+
+## Manual setup (clone this repository)
+
+1. `npm install`
+2. `npm run dev`
+3. Preview on device with Lynx Explorer (same Wi‑Fi as the dev machine).
+
+---
 
 ## Prerequisites
 
-- **Node.js** (v18 or higher)
-- **JDK 17** (required for Android builds)
-- **Android Studio** (for SDK management)
+- **Node.js** v18+
+- **JDK 17** and **Android Studio** / SDK for `npm run build:android`
 
-## Quick Start
+---
 
-1.  **Install dependencies**:
-    ```bash
-    npm install
-    ```
-2.  **Start development server**:
-    ```bash
-    npm run dev
-    ```
-3.  **Preview on device**:
-    - Install **Lynx Explorer** on Android ([Releases](https://github.com/lynx-family/lynx/releases)).
-    - Ensure the device is on the same Wi-Fi network.
-    - Scan the QR code generated in the terminal.
+## Internationalization
 
-## Internationalization (i18n)
+Custom lightweight i18n for Lynx; primary strings live under `src/i18n/locales/`. Sync with AI-assisted tooling:
 
-This project features a custom, lightweight i18n implementation designed for Lynx.
+```bash
+npm run translate
+```
 
-- The primary locale is `src/i18n/locales/en.json`.
-- To synchronize other locales using AI, we use the [Polyglot Keeper](https://github.com/davidaganov/polyglot-keeper):
-  ```bash
-  npm run translate
-  ```
+Uses [Polyglot Keeper](https://github.com/davidaganov/polyglot-keeper) when configured in the generated project.
+
+---
 
 ## Testing
 
-The project uses **Vitest** and **Vue Test Utils** for unit testing.
+Vitest + Vue Test Utils:
 
-- **Run all tests**:
-  ```bash
-  npm test
-  ```
-- **Check coverage**:
-  ```bash
-  npx vitest run --coverage
-  ```
+```bash
+npm test
+npx vitest run --coverage
+```
 
-## Android Build Pipeline
+---
 
-The build process is automated via a custom script that handles platform initialization, asset syncing, and resource preparation.
-
-### Build APK
+## Android build
 
 ```bash
 npm run build:android
 ```
 
-The script performs the following:
+Initializes `android/` and `web/` when missing, builds Lynx/Vue bundles, syncs assets, generates launcher icons from `public/favicon.png`, and produces `android/app/build/outputs/apk/debug/app-debug.apk`.
 
-1.  Initializes `android/` and `web/` platforms if missing.
-2.  Compiles Lynx/Vue bundles.
-3.  Syncs assets to native projects.
-4.  Generates launcher icons from `public/favicon.png`.
-5.  Compiles the APK via Gradle.
+**Windows:** set `ANDROID_HOME` and add `%ANDROID_HOME%\platform-tools` to `Path` if the SDK is not detected.
 
-**Output:** `android/app/build/outputs/apk/debug/app-debug.apk`
+---
 
-### SDK Configuration (Windows)
+## Layout
 
-If the SDK is not found, set the `ANDROID_HOME` environment variable:
+- `src/` — Application source.
+- `public/` — Static assets (icon source).
+- `scripts/` — Automation.
+- `android/`, `web/` — Native/web wrappers (created or updated by build scripts).
 
-1.  Add `ANDROID_HOME` variable pointing to your SDK path.
-2.  Add `%ANDROID_HOME%\platform-tools` to your system `Path`.
-3.  Restart the terminal.
-
-## Project Structure
-
-- `src/` — Vue 3 source code.
-- `public/` — Static assets (source for icon generation).
-- `scripts/` — Build and automation scripts.
-- `android/` — Native Android wrapper.
-- `web/` — Web platform wrapper.
+---
 
 ## License
 
