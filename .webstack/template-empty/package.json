@@ -3,15 +3,6 @@
   "version": "1.0.1",
   "description": "A simple template for quickly building mobile applications with Vue Lynx.",
   "type": "module",
-  "keywords": [
-    "vue-lynx",
-    "template",
-    "mobile",
-    "android",
-    "web",
-    "cross-platform",
-    "vue"
-  ],
   "homepage": "https://github.com/davidaganov/lynx-starter",
   "bugs": {
     "url": "https://github.com/davidaganov/lynx-starter/issues"

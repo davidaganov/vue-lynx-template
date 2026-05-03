@@ -27,11 +27,7 @@ import UiButton from "@/components/ui/UiButton.vue"
 
     <AboutInfo />
 
-    <UiButton
-      type="outline"
-      class="mt-12 w-full max-w-[320px]"
-      :to="{ name: 'home' }"
-    >
+    <UiButton type="outline" class="mt-12 w-full max-w-[320px]" :to="{ name: 'home' }">
       <!-- @webstack:about-return-button -->
       ← Return
     </UiButton>

@@ -1,0 +1,10 @@
+{
+  "name": "demo-pages",
+  "description": "Full build with demo views and components.",
+  "copy": [
+    "src/App.vue",
+    "src/components/pages",
+    "src/views",
+    "src/router"
+  ]
+}

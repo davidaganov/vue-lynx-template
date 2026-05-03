@@ -1,8 +1,12 @@
 {
   "name": "i18n",
-  "requires": ["tests"],
+  "requires": ["tests", "demo-pages"],
   "copy": [
     "src/i18n",
+    "src/composables/useI18n.ts",
+    "src/plugins/i18n.ts",
+    "src/types/enums/locales.enum.ts",
+    "src/types/locales.interface.ts",
     "src/components/ui/UiLanguageSwitcher.vue",
     "src/__tests__/plugins/i18n.test.ts",
     "src/__tests__/plugins/plugin.test.ts",
@@ -10,6 +14,18 @@
     "src/__tests__/composables/useI18n.test.ts"
   ],
   "patches": [
+    {
+      "file": "src/types/enums/index.ts",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:locale-enums",
+      "lines": ["export * from \"./locales.enum\""]
+    },
+    {
+      "file": "src/types/index.ts",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:locale-types",
+      "lines": ["export * from \"./locales.interface\""]
+    },
     {
       "file": "src/index.ts",
       "action": "insert-before-marker",
@@ -49,13 +65,13 @@
     {
       "file": "src/components/pages/about/AboutPage.vue",
       "action": "replace-marker",
-      "marker": "<!-- @webstack:about-description -->\n      A starter kit for building highly performant mobile applications.",
+      "marker": "<!-- @webstack:about-description -->\n      This template is a starting point for your Vue Lynx project.",
       "lines": ["{{ $t(\"about.description\") }}"]
     },
     {
       "file": "src/components/pages/about/AboutPage.vue",
       "action": "replace-marker",
-      "marker": "<!-- @webstack:about-return-button -->\n      Back to Home",
+      "marker": "<!-- @webstack:about-return-button -->\n      ← Return",
       "lines": ["{{ $t(\"about.returnButton\") }}"]
     },
     {
@@ -67,25 +83,25 @@
     {
       "file": "src/components/pages/about/AboutInfo.vue",
       "action": "replace-marker",
-      "marker": "/* @webstack:about-feat-i18n */ \"Internationalization\"",
+      "marker": "/* @webstack:about-feat-i18n */ \"i18n Support\"",
       "lines": ["t(\"about.features.i18n\")"]
     },
     {
       "file": "src/components/pages/about/AboutInfo.vue",
       "action": "replace-marker",
-      "marker": "/* @webstack:about-feat-pinia */ \"State Management\"",
+      "marker": "/* @webstack:about-feat-pinia */ \"Pinia Support\"",
       "lines": ["t(\"about.features.pinia\")"]
     },
     {
       "file": "src/components/pages/about/AboutInfo.vue",
       "action": "replace-marker",
-      "marker": "/* @webstack:about-feat-tailwind */ \"Modern Styling\"",
+      "marker": "/* @webstack:about-feat-tailwind */ \"Tailwind Support\"",
       "lines": ["t(\"about.features.tailwind\")"]
     },
     {
       "file": "src/components/pages/about/AboutInfo.vue",
       "action": "replace-marker",
-      "marker": "/* @webstack:about-feat-tests */ \"Testing\"",
+      "marker": "/* @webstack:about-feat-tests */ \"Unit Tests (Vitest)\"",
       "lines": ["t(\"about.features.tests\")"]
     },
     {
@@ -97,7 +113,7 @@
     {
       "file": "src/components/pages/home/HomeHero.vue",
       "action": "replace-marker",
-      "marker": "<!-- @webstack:hero-subtitle -->\n        Starter",
+      "marker": "<!-- @webstack:hero-subtitle -->\n        Starter Template",
       "lines": ["{{ $t(\"home.hero.subtitle\") }}"]
     },
     {
@@ -109,9 +125,28 @@
     {
       "file": "src/components/pages/home/HomeHero.vue",
       "action": "replace-marker",
-      "marker": "{{ appStore.version }}",
+      "marker": "<!-- @webstack:hero-badge -->\n        {{ appStore.version }}",
       "lines": ["{{ $t(\"home.badge\", { version: appStore.version }) }}"],
-      "allowMultiple": true
+      "optional": true
+    },
+    {
+      "file": "src/components/pages/home/HomeHero.vue",
+      "action": "replace-marker",
+      "marker": "<!-- @webstack:hero-badge -->\n        v1.0.0",
+      "lines": ["{{ $t(\"home.badge\", { version: \"1.0.0\" }) }}"],
+      "optional": true
+    },
+    {
+      "file": "src/components/pages/home/HomeActions.vue",
+      "action": "replace-marker",
+      "marker": "<!-- @webstack:home-actions-get-started -->\n      Get Started",
+      "lines": ["{{ $t(\"home.actions.getStarted\") }}"]
+    },
+    {
+      "file": "src/components/pages/home/HomeActions.vue",
+      "action": "replace-marker",
+      "marker": "<!-- @webstack:home-actions-read-more -->\n      Read More",
+      "lines": ["{{ $t(\"home.actions.readMore\") }}"]
     },
     {
       "file": "src/__tests__/utils.ts",

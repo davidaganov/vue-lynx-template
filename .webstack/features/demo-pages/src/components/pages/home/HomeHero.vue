@@ -1,8 +1,8 @@
 <script setup lang="ts">
 // @webstack:hero-imports
+// @webstack:hero-setup
 import { useLynxScreen } from "@/composables/useLynxScreen"
 
-// @webstack:hero-setup
 const { md } = useLynxScreen()
 </script>
 
@@ -27,7 +27,7 @@ const { md } = useLynxScreen()
         :flatten="false"
       >
         <!-- @webstack:hero-title -->
-        Vue Lynx
+        Lynx
       </text>
       <text
         class="text-primary leading-[1.1]"

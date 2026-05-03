@@ -1,6 +1,5 @@
 <script setup lang="ts">
 // @webstack:about-info-setup
-
 const features = [
   { icon: "🌐", text: /* @webstack:about-feat-i18n */ "i18n Support" },
   { icon: "📦", text: /* @webstack:about-feat-pinia */ "Pinia Support" },
