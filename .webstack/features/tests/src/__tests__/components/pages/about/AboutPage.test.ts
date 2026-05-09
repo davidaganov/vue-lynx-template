@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"
-import AboutPage from "@/components/pages/about/AboutPage.vue"
 import AboutInfo from "@/components/pages/about/AboutInfo.vue"
+import AboutPage from "@/components/pages/about/AboutPage.vue"
 import { mountWithPlugins } from "@/__tests__/utils"
 
 function mockLynxEnvironment() {

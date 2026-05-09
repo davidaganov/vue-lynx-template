@@ -1,10 +1,7 @@
 {
   "name": "pinia",
   "requires": ["tests", "demo-pages"],
-  "copy": [
-    "src/stores",
-    "src/__tests__/stores"
-  ],
+  "copy": ["src/stores", "src/__tests__/stores"],
   "patches": [
     {
       "file": "src/index.ts",

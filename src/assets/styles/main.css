@@ -6,9 +6,11 @@
 }
 
 text {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
-[bindtap], [onclick], .cursor-pointer {
+[bindtap],
+[onclick],
+.cursor-pointer {
   cursor: pointer;
 }

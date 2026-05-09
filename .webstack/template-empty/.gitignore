@@ -1,0 +1,46 @@
+# Local
+.DS_Store
+*.local
+*.log*
+
+# Dist
+node_modules
+dist/
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# TypeScript
+*.tsbuildinfo
+
+# ENV
+.env
+
+# Android
+android/.gradle
+android/build
+android/app/build
+android/local.properties
+android/Generated
+android/.idea
+*.apk
+*.aar
+
+.webstack/features/platforms/android/.gradle
+.webstack/features/platforms/android/build
+.webstack/features/platforms/android/app/build
+.webstack/features/platforms/android/local.properties
+.webstack/features/platforms/android/Generated
+.webstack/features/platforms/android/.idea
+.webstack/features/platforms/android/*.apk
+.webstack/features/platforms/android/*.aar
+
+# Web
+web/dist
+web/node_modules
+web/.nx
+
+# Tests
+coverage

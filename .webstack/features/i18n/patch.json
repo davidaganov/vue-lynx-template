@@ -30,19 +30,13 @@
       "file": "src/index.ts",
       "action": "insert-before-marker",
       "marker": "// @webstack:import",
-      "lines": [
-        "import { createI18n } from \"@/i18n\"",
-        "import { LOCALES } from \"@/types\""
-      ]
+      "lines": ["import { createI18n } from \"@/i18n\"", "import { LOCALES } from \"@/types\""]
     },
     {
       "file": "src/index.ts",
       "action": "insert-before-marker",
       "marker": "// @webstack:use",
-      "lines": [
-        "const i18n = createI18n({ defaultLocale: LOCALES.EN })",
-        "app.use(i18n)"
-      ]
+      "lines": ["const i18n = createI18n({ defaultLocale: LOCALES.EN })", "app.use(i18n)"]
     },
     {
       "file": "src/layouts/default.vue",

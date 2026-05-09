@@ -5,10 +5,7 @@
     "model": "gemini-flash-latest",
     "envVarName": "VITE_POLYGLOT_API_KEY",
     "localeFormat": "short",
-    "locales": [
-      "EN",
-      "RU"
-    ],
+    "locales": ["EN", "RU"],
     "defaultLocale": "EN",
     "localesDir": "src/i18n/locales",
     "trackChanges": "carefully"

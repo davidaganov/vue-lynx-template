@@ -1,15 +1,15 @@
-import { defineConfig } from '@rsbuild/core';
-import { pluginReact } from '@rsbuild/plugin-react';
+import { defineConfig } from "@rsbuild/core"
+import { pluginReact } from "@rsbuild/plugin-react"
 
 export default defineConfig({
   plugins: [pluginReact()],
   html: {
-    template: './public/index.html',
+    template: "./public/index.html"
   },
   output: {
-    assetPrefix: '/',
+    assetPrefix: "/"
   },
   server: {
-    port: 3000,
-  },
-});
+    port: 3000
+  }
+})

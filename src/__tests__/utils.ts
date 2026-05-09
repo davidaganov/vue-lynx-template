@@ -32,7 +32,7 @@ export function mountWithPlugins(
   return mount(component, {
     global: {
       plugins: [
-        router,
+        router
         // @webstack:test-utils-plugins
       ],
       ...options.global
