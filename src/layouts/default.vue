@@ -5,26 +5,68 @@ import UiLanguageSwitcher from "@/components/ui/UiLanguageSwitcher.vue"
 <template>
   <scroll-view
     scroll-y="true"
-    class="flex min-h-screen flex-col bg-background relative"
+    class="layout"
   >
-    <!-- Top Bar with Language Switcher -->
-    <view class="absolute top-8 pt-4 right-6 z-50">
+    <view class="layout__top">
       <UiLanguageSwitcher />
     </view>
 
-    <view class="flex-1 z-20 flex justify-center min-h-screen flex-col h-full p-5">
+    <view class="layout__main">
       <RouterView />
     </view>
 
-    <!-- Background Glow -->
-    <view
-      class="absolute z-10 pointer-events-none bottom-10 -left-20 w-64 h-64 bg-violet-600/10 rounded-full blur-[100px]"
-    />
-    <view
-      class="absolute z-10 pointer-events-none bottom-20 -right-20 w-80 h-80 bg-violet-600/10 rounded-full blur-[80px]"
-    />
+    <view class="layout__glow layout__glow--left" />
+    <view class="layout__glow layout__glow--right" />
   </scroll-view>
 </template>
+
+<style>
+.layout {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  background-color: var(--color-background);
+  position: relative;
+}
+.layout__top {
+  position: absolute;
+  top: 32px;
+  padding-top: 16px;
+  right: 24px;
+  z-index: 50;
+}
+.layout__main {
+  flex: 1;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+}
+.layout__glow {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  border-radius: 9999px;
+  background-color: var(--color-glow);
+}
+.layout__glow--left {
+  bottom: 40px;
+  left: -80px;
+  width: 256px;
+  height: 256px;
+  filter: blur(100px);
+}
+.layout__glow--right {
+  bottom: 80px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  filter: blur(80px);
+}
+</style>
 
 <style>
 scroll-view {

@@ -2,8 +2,9 @@ import type { MountingOptions } from "@vue/test-utils"
 import { mount } from "@vue/test-utils"
 import type { Component } from "vue-lynx"
 import { createRouter, createMemoryHistory } from "vue-router"
-// @webstack:test-utils-imports
-import { ROUTE_NAME, ROUTE_PATH } from "@/types"
+import { createPinia } from "pinia"
+import { createI18n } from "@/i18n"
+import { LOCALES, ROUTE_NAME, ROUTE_PATH } from "@/types"
 
 export function mountWithPlugins(
   component: Component,
@@ -31,10 +32,7 @@ export function mountWithPlugins(
 
   return mount(component, {
     global: {
-      plugins: [
-        router
-        // @webstack:test-utils-plugins
-      ],
+      plugins: [router, createPinia(), createI18n({ defaultLocale: LOCALES.EN })],
       ...options.global
     },
     attachTo: document.body,

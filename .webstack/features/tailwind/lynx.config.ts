@@ -1,5 +1,6 @@
 import { pluginQRCode } from "@lynx-js/qrcode-rsbuild-plugin"
 import { defineConfig } from "@lynx-js/rspeedy"
+import { pluginTailwindCSS } from "rsbuild-plugin-tailwindcss"
 import { pluginVueLynx } from "vue-lynx/plugin"
 
 export default defineConfig({
@@ -25,6 +26,9 @@ export default defineConfig({
       optionsApi: false,
       enableCSSInlineVariables: true,
       enableCSSInheritance: true
+    }),
+    pluginTailwindCSS({
+      config: "tailwind.config.ts"
     })
   ]
 })

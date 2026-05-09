@@ -38,13 +38,9 @@ describe("HomePage", () => {
     expect(wrapper.findComponent({ name: "HomeActions" }).exists()).toBe(true)
   })
 
-  it("has centered layout classes", () => {
+  it("uses home page layout root class", () => {
     const wrapper = mountWithPlugins(HomePage)
     const root = wrapper.find("view")
-    const cls = root.classes().join(" ")
-
-    expect(cls).toContain("flex-col")
-    expect(cls).toContain("items-center")
-    expect(cls).toContain("justify-center")
+    expect(root.classes()).toContain("home-page")
   })
 })

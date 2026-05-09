@@ -10,11 +10,10 @@
   "bracketSameLine": false,
   "singleAttributePerLine": true,
   "htmlWhitespaceSensitivity": "ignore",
-  "plugins": ["prettier-plugin-tailwindcss", "@trivago/prettier-plugin-sort-imports"],
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "importOrder": [
     "^vue",
     "^vue-lynx",
-    "^clsx",
     "^pinia",
     "^@/router",
     "^@/stores",

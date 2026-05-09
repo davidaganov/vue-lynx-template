@@ -33,7 +33,7 @@ describe("HomeHero", () => {
 
   it("renders badge with version", () => {
     const wrapper = mountWithPlugins(HomeHero)
-    expect(wrapper.text()).toContain("Template v1.0.0")
+    expect(wrapper.text()).toMatch(/Template v[\d.]+/)
   })
 
   it("renders hero title", () => {

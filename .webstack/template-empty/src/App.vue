@@ -5,7 +5,7 @@
   </view>
 </template>
 
-<style scoped>
+<style>
 .welcome {
   display: flex;
   flex-direction: column;

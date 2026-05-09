@@ -53,13 +53,12 @@ describe("HomeActions", () => {
     expect(buttons[1].props("to")).toEqual({ name: "about" })
   })
 
-  it("applies responsive classes for large screens (md)", async () => {
-    mockLynxEnvironment(1600, 900) // 1600 / 2 = 800 logical pixels (> 768 md)
+  it("applies responsive row layout for large screens (md)", async () => {
+    mockLynxEnvironment(1600, 900)
     const wrapper = mountWithPlugins(HomeActions)
     await wrapper.vm.$nextTick()
     const root = wrapper.find("view")
-    expect(root.classes()).toContain("flex-row")
-    expect(root.classes()).toContain("gap-4")
+    expect(root.classes()).toContain("home-actions--row")
   })
 
   it("calls handleGetStarted when primary button is clicked", async () => {

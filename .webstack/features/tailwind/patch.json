@@ -1,0 +1,35 @@
+{
+  "name": "tailwind",
+  "requires": ["demo-pages"],
+  "copy": [
+    "tailwind.config.ts",
+    "postcss.config.js",
+    "lynx.config.ts",
+    "src/assets/styles/main.css",
+    "src/assets/styles/lib/tailwind.css"
+  ],
+  "patches": [
+    {
+      "file": ".prettierrc.json",
+      "action": "replace-marker",
+      "marker": "\"plugins\": [\"@trivago/prettier-plugin-sort-imports\"]",
+      "content": "\"plugins\": [\"prettier-plugin-tailwindcss\", \"@trivago/prettier-plugin-sort-imports\"]"
+    },
+    {
+      "file": "src/components/pages/about/AboutInfo.vue",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:about-feat-tailwind-slot",
+      "lines": [
+        "  { icon: \"🎨\", text: /* @webstack:about-feat-tailwind */ \"Tailwind Support\" },"
+      ]
+    }
+  ],
+  "packageJson": {
+    "devDependencies": [
+      "@lynx-js/tailwind-preset",
+      "prettier-plugin-tailwindcss",
+      "rsbuild-plugin-tailwindcss",
+      "tailwindcss"
+    ]
+  }
+}

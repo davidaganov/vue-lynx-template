@@ -11,11 +11,11 @@ const handleGetStarted = () => {
 
 <template>
   <view
-    class="flex w-full"
-    :class="md ? 'gap-4 flex-row mt-12 max-w-[340px]' : 'gap-2 flex-col mt-8 max-w-[180px]'"
+    class="home-actions"
+    :class="md ? 'home-actions--row' : 'home-actions--col'"
   >
     <UiButton
-      class="w-full"
+      class="home-actions__btn"
       type="primary"
       @click="handleGetStarted"
     >
@@ -23,7 +23,7 @@ const handleGetStarted = () => {
       Get Started
     </UiButton>
     <UiButton
-      class="w-full"
+      class="home-actions__btn"
       type="outline"
       :to="{ name: 'about' }"
     >
@@ -32,3 +32,25 @@ const handleGetStarted = () => {
     </UiButton>
   </view>
 </template>
+
+<style>
+.home-actions {
+  display: flex;
+  width: 100%;
+}
+.home-actions--col {
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 32px;
+  max-width: 180px;
+}
+.home-actions--row {
+  flex-direction: row;
+  gap: 16px;
+  margin-top: 48px;
+  max-width: 340px;
+}
+.home-actions__btn {
+  width: 100%;
+}
+</style>

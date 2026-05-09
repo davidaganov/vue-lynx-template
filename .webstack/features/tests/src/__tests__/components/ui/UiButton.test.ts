@@ -60,24 +60,23 @@ describe("UiButton", () => {
     expect(wrapper.text()).toContain("Click me")
   })
 
-  it("applies primary classes", () => {
+  it("applies primary variant class", () => {
     const wrapper = mount(UiButton, {
       props: { type: "primary" },
       slots: { default: "Primary" }
     })
     const inner = wrapper.findAll("view")[1]
-    expect(inner.classes().join(" ")).toContain("bg-primary")
+    expect(inner.classes().join(" ")).toContain("ui-button__inner--primary")
   })
 
-  it("applies outline classes", () => {
+  it("applies outline variant classes", () => {
     const wrapper = mount(UiButton, {
       props: { type: "outline" },
       slots: { default: "Outline" }
     })
     const inner = wrapper.findAll("view")[1]
     const cls = inner.classes().join(" ")
-    expect(cls).toContain("border")
-    expect(cls).toContain("bg-primary/5")
+    expect(cls).toContain("ui-button__inner--outline")
   })
 
   it("shows loading text instead of slot", () => {
@@ -89,14 +88,13 @@ describe("UiButton", () => {
     expect(wrapper.text()).not.toContain("Click me")
   })
 
-  it("applies loading classes when loading is true", () => {
+  it("applies blocked state when loading is true", () => {
     const wrapper = mount(UiButton, {
       props: { type: "primary", loading: true }
     })
     const inner = wrapper.findAll("view")[1]
     const cls = inner.classes().join(" ")
-    expect(cls).toContain("opacity-50")
-    expect(cls).toContain("cursor-not-allowed")
+    expect(cls).toContain("ui-button__inner--blocked")
   })
 
   it("emits click on tap", async () => {

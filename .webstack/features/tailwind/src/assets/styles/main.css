@@ -1,4 +1,5 @@
 @import "./fonts.css";
+@import "./lib/tailwind.css";
 
 :root {
   --color-background: #050a14;

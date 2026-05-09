@@ -89,12 +89,6 @@
     {
       "file": "src/components/pages/about/AboutInfo.vue",
       "action": "replace-marker",
-      "marker": "/* @webstack:about-feat-tailwind */ \"Tailwind Support\"",
-      "lines": ["t(\"about.features.tailwind\")"]
-    },
-    {
-      "file": "src/components/pages/about/AboutInfo.vue",
-      "action": "replace-marker",
       "marker": "/* @webstack:about-feat-tests */ \"Unit Tests (Vitest)\"",
       "lines": ["t(\"about.features.tests\")"]
     },

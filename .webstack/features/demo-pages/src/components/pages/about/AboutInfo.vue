@@ -3,21 +3,21 @@
 const features = [
   { icon: "🌐", text: /* @webstack:about-feat-i18n */ "i18n Support" },
   { icon: "📦", text: /* @webstack:about-feat-pinia */ "Pinia Support" },
-  { icon: "🎨", text: /* @webstack:about-feat-tailwind */ "Tailwind Support" },
+  // @webstack:about-feat-tailwind-slot
   { icon: "🧪", text: /* @webstack:about-feat-tests */ "Unit Tests (Vitest)" }
 ]
 </script>
 
 <template>
-  <view class="w-full max-w-[320px] flex flex-col gap-3">
+  <view class="about-info">
     <view
-      v-for="feature in features"
-      class="rounded-xl border border-white/5 bg-white/[0.03] p-4 flex flex-row items-center gap-3"
-      :key="feature.text"
+      v-for="(feature, index) in features"
+      class="about-info__row"
+      :key="index"
     >
-      <text class="text-xl">{{ feature.icon }}</text>
+      <text class="about-info__icon">{{ feature.icon }}</text>
       <text
-        class="text-sm text-gray-300 font-medium"
+        class="about-info__label"
         text-selection="true"
         :flatten="false"
       >
@@ -26,3 +26,33 @@ const features = [
     </view>
   </view>
 </template>
+
+<style>
+.about-info {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.about-info__row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-border-subtle);
+  background-color: var(--color-surface-glass);
+}
+.about-info__icon {
+  font-size: 20px;
+}
+.about-info__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #d1d5db;
+}
+</style>

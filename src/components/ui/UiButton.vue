@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue-lynx"
 import type { RouteLocationRaw } from "vue-router"
-import { clsx } from "clsx"
 import UiLink from "@/components/ui/UiLink.vue"
 
 const props = withDefaults(
@@ -23,22 +21,6 @@ const emit = defineEmits<{
   (e: "click", event: any): void
 }>()
 
-const buttonClasses = computed(() =>
-  clsx({
-    "bg-primary shadow-[0_0_20px_rgba(139,92,246,0.3)]": props.type === "primary",
-    "bg-secondary border border-border": props.type === "secondary",
-    "border border-primary/50 bg-primary/5": props.type === "outline",
-    "opacity-50 cursor-not-allowed active:scale-100": props.disabled || props.loading
-  })
-)
-
-const textClasses = computed(() =>
-  clsx({
-    "text-white": props.type === "primary" || props.type === "secondary",
-    "text-primary": props.type === "outline"
-  })
-)
-
 const handleClick = (e: any, navigate?: () => void) => {
   if (props.disabled || props.loading) return
   if (navigate) navigate()
@@ -49,28 +31,85 @@ const handleClick = (e: any, navigate?: () => void) => {
 <template>
   <component
     v-slot="slotProps"
-    class="flex"
+    class="ui-button-root"
     :is="props.to ? UiLink : 'view'"
     :to="props.to"
   >
     <view
-      class="flex items-center justify-center w-full rounded-lg px-5 py-2.5 transition-all duration-300 cursor-pointer active:scale-95 hover:brightness-110"
-      :class="buttonClasses"
+      class="ui-button__inner"
+      :class="[
+        props.type === 'primary' ? 'ui-button__inner--primary' : '',
+        props.type === 'secondary' ? 'ui-button__inner--secondary' : '',
+        props.type === 'outline' ? 'ui-button__inner--outline' : '',
+        props.disabled || props.loading ? 'ui-button__inner--blocked' : ''
+      ]"
       @tap="handleClick($event, slotProps?.navigate)"
     >
       <text
         v-if="!props.loading"
-        class="text-sm font-medium tracking-wide"
-        :class="textClasses"
+        class="ui-button__label"
+        :class="props.type === 'outline' ? 'ui-button__label--outline' : 'ui-button__label--on-solid'"
       >
         <slot />
       </text>
       <text
         v-else
-        class="text-sm font-medium text-white opacity-70"
+        class="ui-button__label ui-button__label--on-solid ui-button__label--loading"
       >
         Loading...
       </text>
     </view>
   </component>
 </template>
+
+<style>
+.ui-button-root {
+  display: flex;
+}
+.ui-button__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.2s ease;
+}
+.ui-button__inner--primary {
+  background-color: var(--color-primary);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+.ui-button__inner--secondary {
+  background-color: var(--color-secondary);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-border);
+}
+.ui-button__inner--outline {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(139, 92, 246, 0.5);
+  background-color: rgba(139, 92, 246, 0.05);
+}
+.ui-button__inner--blocked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.ui-button__inner:active:not(.ui-button__inner--blocked) {
+  transform: scale(0.95);
+}
+.ui-button__label {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+.ui-button__label--on-solid {
+  color: #ffffff;
+}
+.ui-button__label--outline {
+  color: var(--color-primary);
+}
+.ui-button__label--loading {
+  opacity: 0.7;
+}
+</style>
