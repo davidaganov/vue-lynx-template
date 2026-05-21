@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "A simple template for quickly building mobile applications with Vue Lynx.",
   "type": "module",
-  "homepage": "https://github.com/davidaganov/lynx-starter",
+  "homepage": "https://aganov.dev/en/docs/guides/starters/vue-lynx-template",
   "bugs": {
     "url": "https://github.com/davidaganov/lynx-starter/issues"
   },
@@ -13,7 +13,7 @@
   },
   "author": {
     "name": "David Aganov",
-    "url": "https://github.com/davidaganov"
+    "url": "https://aganov.dev"
   },
   "license": "MIT",
   "engines": {

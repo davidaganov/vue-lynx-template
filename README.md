@@ -3,10 +3,11 @@
 Vue 3 starter for **Lynx** native targets: Tailwind-based UI, router, optional Pinia and i18n, Vitest, and Android build helpers.
 
 **Repository:** [github.com/davidaganov/vue-lynx-template](https://github.com/davidaganov/vue-lynx-template)
+**Catalog starters:** [github.com/davidaganov/stack](https://aganov.dev/en/docs/guides/starters)
 
-## Recommended setup: WebStack CLI
+## Recommended setup
 
-Use **[`@davidaganov/stack`](https://www.npmjs.com/package/@davidaganov/stack)** ([CLI source](https://github.com/davidaganov/stack)):
+Use **[@davidaganov/stack](https://www.npmjs.com/package/@davidaganov/stack)**:
 
 ```bash
 npx @davidaganov/stack
@@ -14,25 +15,21 @@ npx @davidaganov/stack
 
 Choose **Vue Lynx Template**, then:
 
-| Mode            | What you get                                                                                                                                              |
-| :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Empty**       | Core from `.webstack/template-empty` only.                                                                                                                |
-| **Recommended** | Demo pages plus **Pinia**, **i18n**, **tests**, and (when all Lynx-related modules are enabled) **platforms** integration used by the recommended preset. |
-| **Custom**      | Demo pages baseline; you independently toggle **Pinia**, **i18n** (custom Lynx i18n layer + Polyglot Keeper sync), and **Unit tests (Vitest)**.           |
-
-Router and the demo views/components slice ship with non-empty modes; they are not a separate optional toggle. Skipped modules leave static English (or neutral) strings where the wizard did not enable that layer.
-
-After generation, use `npm run dev` and scan the QR code with **Lynx Explorer** on device ([releases](https://github.com/lynx-family/lynx/releases)). Android packaging flows (`npm run build:android`) assume JDK and Android SDK as below.
-
-Maintainers: **[GUIDLINE.md](https://github.com/davidaganov/stack/blob/main/GUIDLINE.md)** in [davidaganov/stack](https://github.com/davidaganov/stack).
+| Mode            | What you get                                                                                    |
+| :-------------- | :---------------------------------------------------------------------------------------------- |
+| **Empty**       | Core from `.webstack/template-empty` only.                                                      |
+| **Recommended** | Demo pages plus **Pinia**, **i18n**, **tests**, and **platforms** integration.                  |
+| **Custom**      | Demo pages baseline; you independently toggle **Pinia**, **i18n**, and **Unit tests (Vitest)**. |
 
 ---
 
-## Manual setup (clone this repository)
+## Manual setup
 
-1. `npm install`
-2. `npm run dev`
-3. Preview on device with Lynx Explorer (same Wi‑Fi as the dev machine).
+1. `git clone https://github.com/davidaganov/vue-lynx-template.git`
+2. `cd vue-lynx-template`
+3. `npm install`
+4. `npm run dev`
+5. Preview on device with Lynx Explorer (same Wi‑Fi as the dev machine).
 
 ---
 
@@ -45,13 +42,16 @@ Maintainers: **[GUIDLINE.md](https://github.com/davidaganov/stack/blob/main/GUID
 
 ## Internationalization
 
-Custom lightweight i18n for Lynx; primary strings live under `src/i18n/locales/`. Sync with AI-assisted tooling:
+Locale JSON under `src/i18n/locales/`. Typical usage:
 
-```bash
-npm run translate
+```typescript
+import { useI18n } from "@/composables/useI18n"
+
+const { t } = useI18n()
+t("home.hero.title")
 ```
 
-Uses [Polyglot Keeper](https://github.com/davidaganov/polyglot-keeper) when configured in the generated project.
+`npm run translate` runs [Polyglot Keeper](https://aganov.dev/en/docs/about/projects/polyglot-keeper) sync when the **i18n** layer is present.
 
 ---
 
@@ -89,4 +89,4 @@ Initializes `android/` and `web/` when missing, builds Lynx/Vue bundles, syncs a
 
 ## License
 
-MIT © [David Aganov](https://github.com/davidaganov)
+MIT © [David Aganov](https://aganov.dev/en)
