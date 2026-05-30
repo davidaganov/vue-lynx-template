@@ -1,0 +1,74 @@
+{
+  "name": "pinia",
+  "requires": [
+    "tests",
+    "demo-pages"
+  ],
+  "copy": [
+    "src/stores"
+  ],
+  "patches": [
+    {
+      "file": "src/index.ts",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:import",
+      "lines": [
+        "import { createPinia } from \"pinia\""
+      ]
+    },
+    {
+      "file": "src/index.ts",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:use",
+      "lines": [
+        "const pinia = createPinia()",
+        "app.use(pinia)"
+      ]
+    },
+    {
+      "file": "src/components/pages/home/HomeHero.vue",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:hero-imports",
+      "lines": [
+        "import { useAppStore } from \"@/stores/app\""
+      ]
+    },
+    {
+      "file": "src/components/pages/home/HomeHero.vue",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:hero-setup",
+      "lines": [
+        "const appStore = useAppStore()"
+      ]
+    },
+    {
+      "file": "src/components/pages/home/HomeHero.vue",
+      "action": "replace-marker",
+      "marker": "<!-- @webstack:hero-badge -->\n        v1.0.0",
+      "lines": [
+        "<!-- @webstack:hero-badge -->\n        {{ appStore.version }}"
+      ]
+    },
+    {
+      "file": "src/__tests__/utils.ts",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:test-utils-imports",
+      "lines": [
+        "import { createPinia } from \"pinia\""
+      ]
+    },
+    {
+      "file": "src/__tests__/utils.ts",
+      "action": "insert-before-marker",
+      "marker": "// @webstack:test-utils-plugins",
+      "lines": [
+        "createPinia(),"
+      ]
+    }
+  ],
+  "packageJson": {
+    "dependencies": [
+      "pinia"
+    ]
+  }
+}
